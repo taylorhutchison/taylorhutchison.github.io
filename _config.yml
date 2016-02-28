@@ -8,8 +8,7 @@
 # Site settings
 title: Taylor Hutchison
 email: seanthutchison@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-My blog about programming and web development.
+description: My blog about programming and web development.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "taylorhutchison.github.io" # the base hostname & protocol for your site
 twitter_username: taylorhutchison
