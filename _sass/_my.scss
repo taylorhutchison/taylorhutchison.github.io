@@ -1,5 +1,15 @@
 .callout {
-    background:#F1F0F0;
-    color:#AF7FA0;
+    background: $solarize-base7;
+    color:$solarize-magenta;
     padding:5px;
+}
+
+h1 {
+    color: $solarize-base8;
+}
+h2 {
+    color: $solarize-base7;
+}
+h3 {
+    color: $solarize-base6;
 }
