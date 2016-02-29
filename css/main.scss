@@ -3,7 +3,13 @@
 ---
 @charset "utf-8";
 
+$solarize-base1: #002b36;
+$solarize-base2: #073642;
+$solarize-base3: #586e75;
+$solarize-base7: #eee8d5;
 
+$solarize-orange: #cb4b16;
+$solarize-magenta: #d33682;
 
 // Our variables
 $base-font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -14,8 +20,8 @@ $base-line-height: 1.5;
 
 $spacing-unit:     30px;
 
-$text-color:       #111;
-$background-color: #fdfdfd;
+$text-color:       $solarize-base7;
+$background-color: $solarize-base1;
 $brand-color:      #2a7ae2;
 
 $grey-color:       #828282;

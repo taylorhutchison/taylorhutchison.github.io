@@ -6,7 +6,7 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Taylor Hutchison's Blog
+title: Taylor Hutchison
 email: seanthutchison@gmail.com
 description: My blog about programming and web development.
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -16,3 +16,4 @@ github_username:  taylorhutchison
 
 # Build settings
 markdown: kramdown
+future: true

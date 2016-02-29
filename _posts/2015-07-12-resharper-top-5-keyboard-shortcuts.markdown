@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Resharper top 5 keyboard shortcuts"
+description: "Notes from a Codestock presentation on Resharper"
 date:   2015-07-12 17:00:00 -0600
 updated: 2016-02-29 12:00:00 -0600
 categories: visual-studio
