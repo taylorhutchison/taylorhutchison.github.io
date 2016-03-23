@@ -13,3 +13,19 @@ h2 {
 h3 {
     color: $solarize-base6;
 }
+
+table {
+    width: 100%;
+    margin: 20px 0;
+}
+thead tr th{
+    border-bottom:1px solid #fff;
+    border-collapse:collapse; 
+}
+th, td {
+    text-align:left;
+}
+
+code > table {
+    margin: 0;
+}
