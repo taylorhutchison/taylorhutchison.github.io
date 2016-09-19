@@ -15,7 +15,7 @@ The first Unix tool I remember using (beyond simple directory exploration) that 
 
 ### Finding matching files
 
-The ls command lists all files and directories in your current directory or a provided directory. The output of the ls command can be piped (with the | symbol) to the grep command to perform some searching of the results. 
+The ls command lists all files and directories in your current directory or a provided directory. The output of the ls command can be piped (with the &#124; symbol) to the grep command to perform some searching of the results. 
 
 So lets imagine a scenario where you have a directory full of log files. These log files are generated when an application that is running on your machine encounters errors. When the log files are generated they have a filename covention of ERROR-YYYY-MM-DD-SEQUENCE.log. Let us further imagine this application has been running for years and there are thousands of files.
 
@@ -56,20 +56,20 @@ The --exclude-dir= option (there is no short-form) takes a [glob pattern][glob]
 and leaves the matching directories out of the search. Therefore: 
 
 {% highlight bash %}
-grep -rin -exclude-dir=node_modules index. 
+grep -rin --exclude-dir=node_modules index. 
 {% endhighlight %}
 
 This would search the current directory recursively for the pattern "index", but exclude the node_modules folder. If you have multiple directories you would like to exclude you can wrap the pattern in curly braces and comma-seperate the glob patterns, making sure to not leave spaces between the patterns, for instance:
 
 {% highlight bash %}
-grep -rin -exclude-dir={node_modules,dist} index . 
+grep -rin --exclude-dir={node_modules,dist} index . 
 {% endhighlight %}
 
 ### Conclusion
 
 I hope you were able to learn something new by reading this. It took me a long time to feel comfortable at the command line, and feel confident that I was not going to destroy my system by issuing the wrong command. My advice is to practice these commands and other simple commands (which I will cover in another post) and grow incrementally. 
 
-Cheers,
+Cheers
 Taylor Hutchison
 
 [glob]: http://man7.org/linux/man-pages/man7/glob.7.html
