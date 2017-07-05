@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Named parameters in Swift."
-date:   2017-07-03 16:00:00 -0600
+date:   2017-07-05 17:00:00 -0600
 categories: mobile, swift
 ---
 
