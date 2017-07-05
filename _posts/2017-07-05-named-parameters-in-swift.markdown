@@ -50,7 +50,7 @@ int Add(int a, int b){
 Add(1,2);
 {% endhighlight %}
 
-In C#, the unique signature of a method is made up by its name and the type of its parameters. In Swift the name of the paramters also defines the function signature. That means we can define two nearly indentical methods that only differ by their parameter names.
+In C#, the unique signature of a method is made up by its name and the type of its parameters. In Swift the name of the parameters also defines the function signature. That means we can define two nearly identical methods that only differ by their parameter names.
 
 {% highlight swift %}
 func add(a: Int, b: Int) -> Int{
