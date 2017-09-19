@@ -3,6 +3,7 @@ layout: post
 title:  "Starting a new project: Learning iOS development."
 date:   2017-07-03 16:00:00 -0600
 categories: mobile
+published: false
 ---
 
 # Starting a new project
