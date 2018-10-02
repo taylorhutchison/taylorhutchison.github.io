@@ -2,26 +2,23 @@
 layout: default 
 ---
 
-<div class="home">
-	<h1>Programming for Joy</h1>
-	<h2 class="page-heading">Posts</h2>
+<main class="container">
+	<h1>{{ site.title }}</h1>
+	<h2>{{ site.description }}</h2>
+	<h3 class="page-heading">Posts</h3>
 
-	<ul class="post-list">
+	<div class="post-list">
 		{% for post in site.posts %}
-		<li>
-			<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-			<h2>
+		<div class="post-summary">
+			<h4>
 				<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-			</h2>
+			</h4>
 			{% if post.description %}
 			<p>{{post.description}}</p>
 			{% endif %}
-			<p></p>
-		</li>
+			<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+		</div>
 		{% endfor %}
-	</ul>
+	</div>
 
-	<!--<p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>-->
-
-</div>
+</main>

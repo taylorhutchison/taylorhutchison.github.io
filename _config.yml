@@ -6,9 +6,9 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: 
+title: Programming for Joy
+description: A blog about .NET, Angular, Powershell, and enterprise architecture.
 email: seanthutchison@gmail.com
-description: My blog about programming and web development.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "taylorhutchison.github.io" # the base hostname & protocol for your site
 twitter_username: taylorhutchison
@@ -17,3 +17,4 @@ github_username:  taylorhutchison
 # Build settings
 markdown: kramdown
 future: true
+highlighter: rouge

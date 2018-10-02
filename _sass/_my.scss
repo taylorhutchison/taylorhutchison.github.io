@@ -1,31 +1,9 @@
-.callout {
-    background: $solarize-base7;
-    color:$solarize-magenta;
-    padding:5px;
+.icon {
+    width:32px;
+    height:32px;
 }
 
-h1 {
-    color: $solarize-base8;
-}
-h2 {
-    color: $solarize-base7;
-}
-h3 {
-    color: $solarize-base6;
-}
-
-table {
-    width: 100%;
-    margin: 20px 0;
-}
-thead tr th{
-    border-bottom:1px solid #fff;
-    border-collapse:collapse; 
-}
-th, td {
-    text-align:left;
-}
-
-code > table {
-    margin: 0;
+.icon svg {
+    width: 32px;
+    height: 32px;
 }

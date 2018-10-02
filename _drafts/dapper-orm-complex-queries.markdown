@@ -94,7 +94,7 @@ We would expect our results table to look like this:
 
 We could create a List of type Person with the Address property filled with the results like this: 
 
-{% highlight csharp %}
+{% highlight csharp linenos%}
 var sql = "SELECT P.Id, P.FirstName, P.LastName, " +
     "A.Id AS AddressId, A.StreetNumber, A.StreetName, A.City, A.State " +
     "FROM People P INNER JOIN Addresses A ON A.AddressId = P.AddressId; ";
