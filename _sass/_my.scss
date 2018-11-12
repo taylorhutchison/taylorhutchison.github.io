@@ -29,9 +29,9 @@ header nav .nav-item {
 }
 
 .title img {
-    border-radius: 100px;
+    // border-radius: 100px;
     display:block;
-    margin: 0 auto;
+    // margin: 0 auto;
     width: 200px;
     height: 200px;
 }
@@ -42,4 +42,8 @@ header nav .nav-item {
 
 .post-summary {
     margin:20px 0;
+}
+
+h4 small {
+    display:block;
 }

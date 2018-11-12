@@ -5,16 +5,17 @@ layout: default
 <main class="container">
 	<div class="row title">
 		<div class="col-sm-3">
-				<img src="assets/me1.jpg" />
+			<img src="assets/me1.jpg" />
 		</div>
 		<div class="col-sm-9">
 			<h1>{{ site.title }} <small class="text-muted">{{ site.description }}</small></h1>
 		</div>
 	</div>
+	<hr/>
 
+	{% for post in site.posts %}
 	<div class="row">
-		{% for post in site.posts %}
-		<div class="post-summary">
+		<div class="col post-summary">
 			<h4>
 				<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
 				<small class="text-muted"><span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span></small>
@@ -23,7 +24,8 @@ layout: default
 			<p>{{post.description}}</p>
 			{% endif %}
 		</div>
-		{% endfor %}
 	</div>
+	{% endfor %}
+
 	<hr />
 </main>
