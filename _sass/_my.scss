@@ -18,36 +18,28 @@ a {
 }
 
 header nav {
-    display: flex;
     margin: 20px 0;
     border-bottom: 1px solid rgba(0,0,0,.1);
+    width: 100%;
 }
 
-header nav a {
-    margin-right: 20px;
-}
-
-.title {
-    display: flex;
-    margin: 20px 0;
+header nav .nav-item {
+    display: inline-block;
+    margin-right:20px;
 }
 
 .title img {
     border-radius: 100px;
+    display:block;
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
 }
 
 .title h1 {
-    margin: 50px;
+    margin-top:50px;
 }
 
 .post-summary {
     margin:20px 0;
-}
-
-footer {
-    display: flex;
-}
-
-footer div {
-    flex-grow: 1;
 }

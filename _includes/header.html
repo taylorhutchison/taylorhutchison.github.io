@@ -1,12 +1,14 @@
- <header class="container">
-    <div>
-      <nav>
+<header class="container">
+  <nav>
+      <div class="nav-item">
         <a href="{{ site.baseurl }}/">{{ site.title }}</a>
+      </div>
         {% for my_page in site.pages %}
           {% if my_page.title %}
+          <div class="nav-item">
             <a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+          </div>
           {% endif %}
         {% endfor %}
-      </nav>
-    </div>
-  </header>
+  </nav>
+</header>

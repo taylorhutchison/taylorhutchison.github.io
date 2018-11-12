@@ -3,12 +3,16 @@ layout: default
 ---
 
 <main class="container">
-	<div class="title">
-		<img src="assets/me1.jpg" />
-		<h1>{{ site.title }} <small class="text-muted">{{ site.description }}</small></h1>
+	<div class="row title">
+		<div class="col-sm-3">
+				<img src="assets/me1.jpg" />
+		</div>
+		<div class="col-sm-9">
+			<h1>{{ site.title }} <small class="text-muted">{{ site.description }}</small></h1>
+		</div>
 	</div>
 
-	<div class="post-list">
+	<div class="row">
 		{% for post in site.posts %}
 		<div class="post-summary">
 			<h4>
