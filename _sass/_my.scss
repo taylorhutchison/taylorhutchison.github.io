@@ -1,3 +1,12 @@
+html, body {
+    background-color: #fafafa;
+}
+
+a {
+    // color: #fbbb1f;
+    color: #ffb500;
+}
+
 .icon {
     width:32px;
     height:32px;
@@ -6,4 +15,39 @@
 .icon svg {
     width: 32px;
     height: 32px;
+}
+
+header nav {
+    display: flex;
+    margin: 20px 0;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+header nav a {
+    margin-right: 20px;
+}
+
+.title {
+    display: flex;
+    margin: 20px 0;
+}
+
+.title img {
+    border-radius: 100px;
+}
+
+.title h1 {
+    margin: 50px;
+}
+
+.post-summary {
+    margin:20px 0;
+}
+
+footer {
+    display: flex;
+}
+
+footer div {
+    flex-grow: 1;
 }

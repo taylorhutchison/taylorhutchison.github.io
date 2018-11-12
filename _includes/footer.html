@@ -1,32 +1,18 @@
 
 <footer class="container">
-
-
-
+  
     <div>
-      <div>
-        <ul>
-          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <ul>
-          {% if site.github_username %}
-          <li>
-            {% include icon-github.html username=site.github_username %}
-          </li>
-          {% endif %}
-
-          {% if site.twitter_username %}
-          <li>
-            {% include icon-twitter.html username=site.twitter_username %}
-          </li>
-          {% endif %}
-        </ul>
-      </div>
-
+      <a href="mailto:{{ site.email }}">{{ site.email }}</a>
     </div>
-
+    {% if site.github_username %}
+    <div>
+      {% include icon-github.html username=site.github_username %}
+    </div>
+    {% endif %}
+    {% if site.twitter_username %}
+    <div>
+      {% include icon-twitter.html username=site.twitter_username %}
+    </div>
+    {% endif %}
 
 </footer>
