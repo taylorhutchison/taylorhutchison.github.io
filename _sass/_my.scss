@@ -36,6 +36,12 @@ header nav .nav-item {
     height: 200px;
 }
 
+@media (max-width: 575px) { 
+    .title img {
+        margin: 0 auto;
+    }
+ }
+
 .title h1 {
     margin-top:50px;
 }
