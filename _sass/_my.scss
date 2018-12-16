@@ -39,6 +39,7 @@ header nav .nav-item {
 @media (max-width: 575px) { 
     .title img {
         margin: 0 auto;
+        border-radius: 100px;
     }
  }
 
@@ -52,4 +53,9 @@ header nav .nav-item {
 
 h4 small {
     display:block;
+}
+
+th, td {
+    border:1px solid #000;
+    padding:2px;
 }
