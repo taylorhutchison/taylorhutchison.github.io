@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Ranking results in a subquery"
+title:  "Ranking results in a subquery using ROW_NUMBER()"
 description: "Using the ROW_NUMBER() window function to add a rank column."
 date:   2018-12-16 12:00:00 -0600
 published: true
