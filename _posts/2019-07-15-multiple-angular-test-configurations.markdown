@@ -125,3 +125,11 @@ ng test --main src/test-services.ts --ts-config src/tsconfig.services.spec.json
 ### Summary
 
 By creating seperate test-[type].ts and and tsconfig.[type].spec.ts files we can easily run the tests we would like instead of all the tests in the suite. You can also use the "exclude" property if you wanted to run all your service, pipe, etc. tests, but not your component tests.
+
+
+#### Helpful tip
+
+If you go down the route of running all the non-component tests the regular expression to filter the component tests out is:
+{% highlight js %}
+/(?<!component)\.spec\.ts$/
+{% endhighlight %}
