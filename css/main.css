@@ -4,14 +4,34 @@ html, body {
 
 body {
     padding: 10px;
-    width: 700px;
+    width:400px;
     margin: 0 auto;
 }
 
 #profile {
-    width: 150px;
+    width: 400px;
     margin: 0 auto;
 }
+
+#profile img {
+    width: 380px;
+}
+
+@media only screen and (min-width: 768px) {
+    body {
+        width: 700px;
+        margin: 0 auto;
+    }
+    #profile {
+        width: 700px;
+        margin: 0 auto;
+    }
+    #profile img {
+        width: 680px;
+    }
+}
+
+
 
 .post-summary {
     display: block;
