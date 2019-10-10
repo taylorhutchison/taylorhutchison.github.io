@@ -1,0 +1,147 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <title>Multiple Angular Test Configurations - Taylor Hutchison's Programming Blog</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <link href="../css/normalize.css" rel="stylesheet" media="all" />
+    <link href="../css/main.css" rel="stylesheet" media="all" />
+    <link href="../css/highlight/atelier-savanna-light.css" rel="stylesheet" media="all" />
+</head>
+
+<body>
+    <a href="../index.html">Home</a>
+    <article>
+        <h1>Multiple Angular CLI Test configurations.</h1>
+        <h3>July 15th, 2019</h3>
+        <h4>Angular Testing</h4>
+        <p>When you generate something (component, service, pipe, etc) with the Angular CLI it also creates an
+            associated spec file for testing that file. By default the main code file is named [name you provided].[type
+            of file].ts and the spec file is named [name your provided].[type of file].spec.ts. So if you follow the
+            Angular naming conventions all your component test files end in “.component.spec.ts” and all your service
+            test files end in “.service.spec.ts”. This is good because we can use this pattern to run only a certain set
+            of tests.</p>
+        <p>If you examine your <a href="https://angular.io/guide/workspace-config">angular.json</a> file there will be a
+            “test” property somewhere in the structure of your main angular project. There are two properties we are
+            concerned with “main” which by default points to “src/test.ts” and “tsConfig” which points to
+            “src/tsconfig.spec.json”. So when we use the command “ng test” it will by default use the settings assigned
+            to “test” in the angular.json file. We would like to override those, but first lets understand what test.ts
+            and tsconfig.spec.json are actually doing.</p>
+        <p>The test.ts file is the file that Karma uses to setup the test environment for Angular and load all the spec
+            files. The default looks like this:</p>
+        <pre>
+<code class="typescript">
+import 'zone.js/dist/zone-testing';
+import { getTestBed } from '@angular/core/testing';
+import {
+  BrowserDynamicTestingModule,
+  platformBrowserDynamicTesting
+} from '@angular/platform-browser-dynamic/testing';
+
+declare const require: any;
+
+// First, initialize the Angular testing environment.
+getTestBed().initTestEnvironment(
+  BrowserDynamicTestingModule,
+  platformBrowserDynamicTesting()
+);
+
+
+// Then we find all the tests.
+const context = require.context('./', true, /\.spec\.ts$/);
+// And load the modules.
+context.keys().map(context);
+</code>
+</pre>
+
+        <p>The tsconfig.spec.json file is used to by the typescript compiler to specify which files to load and compile.
+            The default looks like this:</p>
+        <pre>
+<code class="json">
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+      "outDir": "../out-tsc/spec",
+      "baseUrl": "./",
+      "module": "commonjs",
+      "types": [
+        "jasmine",
+        "node"
+      ]
+    },
+    "files": [
+      "test.ts",
+      "polyfills.ts"
+    ],
+    "include": [
+      "**/*.spec.ts",
+      "**/*.d.ts"
+    ]
+}
+</code>
+</pre>
+        <h4>Creating an alternative test setup for service tests</h4>
+        <p>If you wanted to run only your service tests I suggest you do the following: 1) Create a new file in the src
+            directory called test-services.ts and paste in:</p>
+        <pre><code class="typescript">import 'zone.js/dist/zone-testing';
+import { getTestBed } from '@angular/core/testing';
+import {
+  BrowserDynamicTestingModule,
+  platformBrowserDynamicTesting
+} from '@angular/platform-browser-dynamic/testing';
+
+declare const require: any;
+
+// First, initialize the Angular testing environment.
+getTestBed().initTestEnvironment(
+  BrowserDynamicTestingModule,
+  platformBrowserDynamicTesting()
+);
+// Then we find all the tests.
+const context = require.context('./', true, /\.service\.spec\.ts$/);
+// And load the modules.
+context.keys().map(context);</code>
+</pre>
+        <p>2) Create a new file in the src directory called tsconfig.services.spec.json and paste in:</p>
+        <pre><code class="json">{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+      "outDir": "../out-tsc/spec",
+      "baseUrl": "./",
+      "module": "commonjs",
+      "types": [
+        "jasmine",
+        "node"
+      ]
+    },
+    "files": [
+      "test-services.ts",
+      "polyfills.ts"
+    ],
+    "include": [
+      "**/*.service.spec.ts",
+      "**/*.d.ts"
+    ]
+}   
+</code></pre>
+        <p>Normally when you run your tests using “ng test” on the command line it will use the default test.ts and
+            tsconfig.spec.ts files. Instead now you will pass two additional flags to the ng test command.</p>
+        <pre><code class="bash">ng test --main src/test-services.ts --ts-config src/tsconfig.services.spec.json</code>
+</pre>
+        <h4>Summary</h4>
+        <p>By creating seperate test-[type].ts and and tsconfig.[type].spec.ts files we can easily run the tests we
+            would like instead of all the tests in the suite. You can also use the “exclude” property if you wanted to
+            run all your service, pipe, etc. tests, but not your component tests.</p>
+        <h4>Helpful Tip</h4>
+        <p>If you go down the route of running all the non-component tests the regular expression to filter the
+            component tests out is:</p>
+        <pre><code class="json">/(?&lt;!component)\.spec\.ts$/</code>
+    </pre>
+    </article>
+    <script src="../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>
