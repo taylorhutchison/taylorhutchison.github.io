@@ -4,13 +4,8 @@ html, body {
 
 body {
     padding: 10px;
-}
-
-@media only screen and (min-width: 768px) {
-    body {
-        width: 700px;
-        margin: 0 auto;
-    }
+    width: 700px;
+    margin: 0 auto;
 }
 
 #profile {
