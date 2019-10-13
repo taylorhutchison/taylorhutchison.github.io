@@ -1,0 +1,215 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <title>Top 4 Powershell Cmdlets for Beginners - Taylor Hutchison's Programming Blog</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-7527076-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-7527076-2');
+    </script>
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:creator" content="@taylorhutchison" />
+    <meta property="og:url" content="http://taylorhutchison.com/posts/top-4-powershell-cmdlets-for-beginners.html" />
+    <meta property="og:title" content="Top 4 Powershell Cmdlets for Beginners" />
+    <meta property="og:description"
+        content="My recommendations for the 4 most useful cmdlets for powershell beginners - Taylor Hutchison's Programming Blog" />
+    <meta property="og:image:src" content="http://taylorhutchison.com/images/logos/powershell_logo.png" />
+    <meta property="og:image:alt" content="Powershell logo" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <link href="../css/normalize.css" rel="stylesheet" media="all" />
+    <link href="../css/main.css" rel="stylesheet" media="all" />
+    <link href="../css/highlight/atelier-savanna-light.css" rel="stylesheet" media="all" />
+</head>
+
+<body>
+    <a href="../index.html">Home</a>
+    <article>
+        <h1>Top 4 Powershell Cmdlets for Beginners</h1>
+        <h3>October 13th, 2019</h3>
+        <p>Powershell can be confusing for beginners, especially those coming from imperitive, compiled languages like
+            C++ or C#.
+            If you are not used to the command line, not only could you struggle with the syntax of powershell, but also
+            the fundamental question
+            of what you even do with powershell.</p>
+        <p>Powershell is often advertised as a great tool for network admins who have large clusters of machines to
+            monitor and maintain.
+            Remote computer administration tasks are advanced uses. In my opinion, Powershell is great for beginners
+            (and beyond) who just want
+            to explore and understand their own machine.
+        </p>
+        <p>In this post I'll explore the top 4 <a
+                href="https://docs.microsoft.com/en-us/powershell/scripting/developer/cmdlet/cmdlet-overview">cmdlets</a>
+            a beginner should know when getting started with powershell.
+            You'll end up using these commands even when your an advanced powershell user. Ok, enough said. Lets explore
+            some commands.
+        </p>
+        <ol>
+            <li>Get-ChildItem
+                <p>On the surface, the <a
+                        href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-6">Get-ChildItem</a>
+                    cmdlet is essentially getting all the items in a container (e.g. all the
+                    files and folders inside your current working directory). This is roughly equivalent to the
+                    <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/dir">dir"
+                        command in CMD</a>.
+                    In fact powershell automatically aliases dir to Get-ChildItem.
+                </p>
+                <p>The basic usage will get you the list of files and folders in your current working directory along
+                    with some
+                    meta information about those items including the length in bytes if the item is a file.
+                </p>
+                <pre><code class="powershell">PS /Users/Taylor> Get-ChildItem
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----           2/22/19 10:19 PM                Alpha
+d-----            9/9/19  2:56 PM                Beta
+d-----           9/24/19  9:23 AM           1028 gamma.txt
+d-----            7/1/19 11:58 AM           2034 delta.txt</code></pre>
+                <p>You can pass the -Path flag to Get-ChildItem to explore containers outside of your current working
+                    directory.</p>
+                <pre><code class="powershell">Get-ChildItem -Path ~/path/to/folder</code></pre>
+                <p>Other notable flags for the Get-ChildItem cmdlet are: </p>
+                <ul>
+                    <li>-Recurse
+                        <p>Get all the items in a container and all the items in all sub-containers.</p>
+                    </li>
+                    <li>-Filter [pattern]
+                        <p>Only those items matching the pattern are returned. Can use * and ? wildcards.</p>
+                    </li>
+                    <li>-Force
+                        <p>Get items that otherwise wouldn't be returned such as hidden files. Doesn't override security
+                            restrictions.</p>
+                    </li>
+                </ul>
+            </li>
+            <li>Get-Content
+                <p><a
+                        href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-content?view=powershell-6">Get-Content</a>
+                    does exactly what it looks like. It retrieves the contents of files. It can do a bit more than that,
+                    but
+                    for a beginner that is what you'll use it for. In CMD the "type" command will print to the scren
+                    that contents of a file.
+                    Get-Content can print content to the screen, but often you will want to pipe the contents of a file
+                    to another cmdlet.
+                </p>
+                <p>
+                    Lets look at some usages:
+                </p>
+                <pre><code class="powershell">PS /Users/Taylor> Get-Content -Path hello.txt
+Hello, World!
+                </code></pre>
+                <pre><code class="powershell">PS /Users/Taylor> Get-Content -Path ~/Logs/ -Filter *2019*.log
+[Lots of output here]
+                </code></pre>
+                <p>Other notable flags for the Get-Content cmdlet are: </p>
+                <ul>
+                    <li>-Raw
+                        <p>By default, Get-Content returns an array of strings, one string per line in the file. Using
+                            the -Raw flag
+                            you can get the entire contents back as a single string.
+                        </p>
+                    </li>
+                    <li>-TotalCount
+                        <p>How many lines to read from a file from the start. Useful for checking if the file is what
+                            you are looking for.</p>
+                    </li>
+                    <li>-Tail
+                        <p>How many lines from the end to read. Very useful for peeking at recent entries in a log file.
+                        </p>
+                    </li>
+                </ul>
+            </li>
+            <li>Select-Object
+                <p><a
+                        href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/select-object?view=powershell-6">
+                        Select-Object</a> takes an object and returns an object, usually after a bit of transformation.
+                    You could take in an array of DirectoryInfo object (produced by Get-ChildItem) and return another
+                    array of objects
+                    with just "Name" and "Extension" properties. You can also select the first or last item in a
+                    collection.
+                    Select-Object has a lot of in common with select in linq from C#.</p>
+                <p>Imagine you want to use the Get-ChildItem cmdlet to get all the files in the current directory. You
+                    would use this command:
+                </p>
+                <pre><code class="powershell">PS /Users/Taylor> Get-ChildItem -File</code></pre>
+                <p>Instead of getting all the properties back from this command image you just wanted the Name and
+                    Length property.
+                    You would pipe that output of that command to a Select-Object with the -Property flag:
+                </p>
+                <pre><code class="powershell">PS /Users/Taylor> Get-ChildItem -File | `
+                  Select-Object -Property Name, Length</code></pre>
+                <p>The -Property parameter specifies which properties from the objects being piped in you want to
+                    extract and add to the
+                    objects coming out.
+                    Also notice you can use the backtick (`) to split commands across lines.
+                </p>
+                <p>If you want to get the first item in a list use the -First flag.</p>
+                <pre><code class="powershell">PS /Users/Taylor> Get-ChildItem -File | `
+                  Select-Object -First 1</code></pre>
+                <p>Select has a lot of power, and you will use it a lot to transform the output of one cmdlet into the
+                    right "shape" for
+                    another cmdlet.
+                    Other notable parameters for Select-Object are:
+                </p>
+                <ul>
+                    <li>-Last [number]
+                        <p>Get the last X items in a list.</p>
+                    </li>
+                    <li>-Unique
+                        <p>If objects have the same properties and values then only 1 will be added to the output
+                            collection.</p>
+                    </li>
+                    <li>-Skip [number]
+                        <p>Skip X items from the start of a collection and return the rest.</p>
+                    </li>
+                    <li>-ExpandProperty [property name]
+                        <p>Return a collection of a specificed property, rather than a collection of objects with that
+                            property.</p>
+                    </li>
+                </ul>
+            </li>
+            <li>Where-Object
+                <p><a
+                        href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/where-object?view=powershell-6">
+                        Where-Object</a> is your general-purpose filter: given a collection, filter the objects so that
+                    only those meeting
+                    a certain condition are returned as output. The simple usage is: </p>
+                <pre><code class="powershell">Where-Object Name -eq file.txt</code></pre>
+                <p>This command is saying only return objects whose name property equals "file.txt". The -eq operator is
+                    the powershell equals
+                    operator (e.g. == in many other languages).
+                </p>
+                <p>Where-Object has a lot of power, and is very useful for trimming down the output of one cmdlet before
+                    inputing it into another.</p>
+                <p>A couple of other notable parameters are: </p>
+                <ul>
+                    <li>-Contains
+                        <p>If a property value is like rather than equals a certain value. Use wildcards * and ? to
+                            match.</p>
+                        <pre><code class="powershell">Where-Object Name -Like *.txt </code></pre>
+                    </li>
+                    <li>-Not
+                        <p>If a property value is not a value.</p>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+        <p>Powershell is a great tool for exploring and working with your own machine. If you are going to learn
+            powershell I highly recommend
+            focusing on the fundamentals first, because these commands and a few others are really the bread and butter
+            of powershell.
+            Happy scripting!
+        </p>
+    </article>
+
+    <script src="../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>
