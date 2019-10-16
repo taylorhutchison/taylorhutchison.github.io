@@ -4,30 +4,30 @@ html, body {
 
 body {
     padding: 10px;
-    width:400px;
+    width:700px;
     margin: 0 auto;
 }
 
 #profile {
-    width: 400px;
+    width: 350px;
     margin: 0 auto;
 }
 
 #profile img {
-    width: 380px;
+    width: 330px;
 }
 
 @media only screen and (min-width: 768px) {
     body {
-        width: 700px;
+        width: 900px;
         margin: 0 auto;
     }
     #profile {
-        width: 700px;
+        width: 450px;
         margin: 0 auto;
     }
     #profile img {
-        width: 680px;
+        width: 430px;
     }
 }
 
