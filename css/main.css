@@ -1,45 +1,53 @@
 html, body {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Open Sans', sans-serif;
 }
 
-body {
-    padding: 10px;
-    width:700px;
-    margin: 0 auto;
+.container {
+    padding: 15px;
 }
 
+#artborder {
+}
+
+#artborder .bar {
+    height:20px;
+}
+.b4 {
+    background: rgb(93,172,167);
+    background: linear-gradient(90deg, rgba(93,172,167,1) 0%, rgba(52,126,71,1) 100%);
+}
 #profile {
-    width: 350px;
-    margin: 0 auto;
+    display:flex;
+    justify-content: center;
 }
 
 #profile img {
-    width: 330px;
+    width: 200px;
 }
 
 @media only screen and (min-width: 768px) {
-    body {
+    .container {
         width: 900px;
         margin: 0 auto;
     }
-    #profile {
-        width: 450px;
-        margin: 0 auto;
-    }
-    #profile img {
-        width: 430px;
-    }
 }
-
-
 
 .post-summary {
     display: block;
-    background: #f5f3f3;
     color: #000000;
     text-decoration: none;
-    padding: 10px;
     margin:0 0 20px 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #cdcdcd;
+}
+
+.post-summary h3, .post-summary h4 {
+    margin:2px 0;
+    padding:0;
+}
+
+.post-summary h4 {
+    color: #777;
 }
 
 th {
