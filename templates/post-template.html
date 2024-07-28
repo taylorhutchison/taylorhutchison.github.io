@@ -4,16 +4,6 @@
 
 <head>
     <title>Taylor Hutchison's Programming Blog</title>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-7527076-2"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-7527076-2');
-    </script>
-    <meta property="twitter:card" content="summary" />
-    <meta property="twitter:creator" content="@taylorhutchison" />
     <meta property="og:url" content="http://taylorhutchison.com/" />
     <meta property="og:title" content="Template" />
     <meta property="og:description" content="Description - Taylor Hutchison's Programming Blog" />
@@ -27,10 +17,17 @@
 </head>
 
 <body>
-    <a href="../index.html">Home</a>
-    <article>
-        {{REPLACEMATCH}}
-    </article>
+    <header>
+        <nav>
+            <span class="title">Taylor Hutchison's Programming Blog</span>
+            <a href="../index.html">Return to homepage</a>
+        </nav>
+    </header>
+    <main>
+        <article>
+            <!-- CONTENT_PLACEHOLDER -->
+        </article>
+    </main>
 
     <script src="../js/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>

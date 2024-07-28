@@ -1,0 +1,27 @@
+{
+  "name": "taylorhutchison.github.io",
+  "version": "1.0.0",
+  "description": "Blog for Taylor Hutchison",
+  "main": "index.js",
+  "scripts": {
+    "build": "node build.js",
+    "serve": "npm run build && http-server -p 8080"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taylorhutchison/taylorhutchison.github.io.git"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "Taylor Hutchison",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taylorhutchison/taylorhutchison.github.io/issues"
+  },
+  "homepage": "https://github.com/taylorhutchison/taylorhutchison.github.io#readme",
+  "dependencies": {
+    "http-server": "^14.1.1",
+    "marked": "^13.0.2"
+  }
+}

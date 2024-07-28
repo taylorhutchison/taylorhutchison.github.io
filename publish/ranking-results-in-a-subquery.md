@@ -1,36 +1,12 @@
-<!doctype html>
+# Ranking results in a subquery using ROW_NUMBER()
+#### December 16th, 2018
 
-<html lang="en">
+I was recently looking at some data that I wanted to rank. The problem was I did not want to see all the
+data in the table ranked. I just wanted to see a subset of the data, but with each row ranked among the entire dataset. Let me layout an example to illustrate the situation.
 
-<head>
-    <title>Taylor Hutchison's Programming Blog</title>
-    <meta property="og:url" content="http://taylorhutchison.com/" />
-    <meta property="og:title" content="Template" />
-    <meta property="og:description" content="Description - Taylor Hutchison's Programming Blog" />
-    <meta property="og:image:src" content="http://taylorhutchison.com/images/profile.jpg" />
-    <meta property="og:image:alt" content="Profile picture of Taylor Hutchison" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width">
-    <link href="../css/normalize.css" rel="stylesheet" media="all" />
-    <link href="../css/main.css" rel="stylesheet" media="all" />
-    <link href="../css/highlight/atelier-savanna-light.css" rel="stylesheet" media="all" />
-</head>
+Let us imagine a table that contains the average wait time for attractions at Magic Kingdom in Walt Disney
+World. Our data might look like this:
 
-<body>
-    <header>
-        <nav>
-            <span class="title">Taylor Hutchison's Programming Blog</span>
-            <a href="../index.html">Return to homepage</a>
-        </nav>
-    </header>
-    <main>
-        <article>
-            <h1>Ranking results in a subquery using ROW_NUMBER()</h1>
-<h4>December 16th, 2018</h4>
-<p>I was recently looking at some data that I wanted to rank. The problem was I did not want to see all the
-data in the table ranked. I just wanted to see a subset of the data, but with each row ranked among the entire dataset. Let me layout an example to illustrate the situation.</p>
-<p>Let us imagine a table that contains the average wait time for attractions at Magic Kingdom in Walt Disney
-World. Our data might look like this:</p>
 <table>
     <thead>
         <tr>
@@ -116,11 +92,13 @@ World. Our data might look like this:</p>
     </tbody>
 </table>
 
-<p>Now let us say we want to rank these attractions by WaitTime. We might execute this query:</p>
+Now let us say we want to rank these attractions by WaitTime. We might execute this query:
+
 <pre><code class="sql">SELECT ATTRACTION, ZONE, WAITTIME, ROWNUM
  FROM ATTRACTIONS ORDER BY WAITTIME DESC;</code></pre>
 
-<p>We could expect to get these results back:</p>
+We could expect to get these results back:
+
 <table>
     <thead>
         <tr>
@@ -220,13 +198,16 @@ World. Our data might look like this:</p>
 </table>
         
 
-<p>Rownum represents the order that the row was selected in the query, so lets assume that each row was selected in alphabetical order.</p>
-<p>Now instead of ranking all the attractions across the entire park lets rank just the ones in Fantasyland. So now our query is:</p>
+Rownum represents the order that the row was selected in the query, so lets assume that each row was selected in alphabetical order.
+
+Now instead of ranking all the attractions across the entire park lets rank just the ones in Fantasyland. So now our query is:
+
 <pre><code class="sql">SELECT ATTRACTION, ZONE, WAITTIME, ROWNUM 
 FROM ATTRACTIONS WHERE ZONE = 'Fantasyland' 
 ORDER BY WAITTIME DESC;</code></pre>
 
-<p>We could expect to get these results back:</p>
+We could expect to get these results back:
+
 <table>
     <thead>
         <tr>
@@ -269,18 +250,21 @@ ORDER BY WAITTIME DESC;</code></pre>
     </tbody>
 </table>       
 
-<p>Great! We have the attractions in Fantasyland ranked, but we have lost the information indicated how they
+Great! We have the attractions in Fantasyland ranked, but we have lost the information indicated how they
 rank against other rides in the other zones. This is where the window function ROW_NUMBER() comes in.
 Briefly, window functions are are SQL methods that calculate a single value for each row inside the “window”
-or a subset of data.</p>
-<p>So if we try this query:</p>
+or a subset of data.
+
+So if we try this query:
+
 <pre><code class="sql">SELECT * FROM 
     SELECT ATTRACTION, ZONE, WAITTIME, ROW_NUMBER() 
         OVER(ORDER BY WAITTIME DESC)
         AS RANK FROM ATTRACTIONS)
 WHERE ZONE = 'Fantasyland';</code></pre>
 
-<p>We should get:</p>
+We should get:
+
 <table>
     <thead>
         <tr>
@@ -324,15 +308,8 @@ WHERE ZONE = 'Fantasyland';</code></pre>
 </table>        
 
 
-<p>Now we can see that the Seven Dwarfs Mine Train ride has the second highest wait time in the park. Thanks ROW_NUMBER()!</p>
-<p>Window functions are really powerful when you are trying to do data analysis.</p>
-<p>Check out this page <a href="https://drill.apache.org/docs/sql-window-functions-introduction/">SQL Window Functions Introduction</a> to read more about them!</p>
+Now we can see that the Seven Dwarfs Mine Train ride has the second highest wait time in the park. Thanks ROW_NUMBER()!
 
-        </article>
-    </main>
+Window functions are really powerful when you are trying to do data analysis.
 
-    <script src="../js/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-</body>
-
-</html>
+Check out this page <a href="https://drill.apache.org/docs/sql-window-functions-introduction/">SQL Window Functions Introduction</a> to read more about them!
