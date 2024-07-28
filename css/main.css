@@ -1,13 +1,11 @@
-html, body {
+html,
+body {
     font-family: 'Open Sans', sans-serif;
 }
 
-header, main {
+header,
+main {
     padding: 15px;
-}
-
-header {
-    border-bottom: 1px solid #343434;
 }
 
 nav {
@@ -16,74 +14,84 @@ nav {
 }
 
 nav span.title {
-    font-size:1.5em;
+    font-size: 1.5em;
 }
 
-#artborder .bar {
-    height:20px;
-}
-.b4 {
-    background:  rgba(52,126,71,1);
-}
-#profile {
-    display:flex;
-    justify-content: center;
+body {
+    width: 900px;
+    margin: 0 auto;
 }
 
-#profile img {
-    width: 200px;
-}
-
-@media only screen and (min-width: 768px) {
-    header, main {
-        width: 900px;
-        margin: 0 auto;
+@media screen and (max-width: 900px) {
+    body {
+        width: 100%;
     }
 }
 
 .post-summary {
     display: block;
-    color: #000000;
     text-decoration: none;
-    margin:0 0 20px 0;
+    margin: 0 0 20px 0;
     padding-bottom: 20px;
-    border-bottom: 1px solid #cdcdcd;
 }
 
-.post-summary h3, .post-summary h4 {
-    margin:2px 0;
-    padding:0;
-}
-
+.post-summary h3,
 .post-summary h4 {
-    color: #777;
+    margin: 2px 0;
+    padding: 0;
 }
 
 th {
     text-align: left;
-    padding:2px 7px;
-}
-
-tr:hover {
-    background-color: #f5f5f5;
+    padding: 2px 7px;
 }
 
 td {
     padding: 2px 7px;
 }
 
-/*
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: black;
-        color: white;
+        background-color: #222831;
+        color: #eee;
+    }
+
+    header {
+        border-bottom: 1px solid #31363F;
+    }
+
+    a {
+        color: #76ABAE;
+    }
+
+    tr:hover {
+        background-color: #76ABAE;
+    }
+
+    .post-summary {
+        border-bottom: 1px solid #31363F;
     }
 }
 
 @media (prefers-color-scheme: light) {
     body {
-        background-color: white;
-        color: black;
+        background-color: #eee;
+        color: #222831;
+    }
+
+    header {
+        border-bottom: 1px solid #76ABAE;
+    }
+
+    a {
+        color: #31363F;
+    }
+
+    tr:hover {
+        background-color: #31363F;
+        color: #eee;
+    }
+    .post-summary {
+        border-bottom: 1px solid #76ABAE;
     }
 }
-*/
