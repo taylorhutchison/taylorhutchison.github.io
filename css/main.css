@@ -3,30 +3,19 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+header {
+    margin-bottom:15px;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
 }
 
 nav span.title {
     font-size: 1.5em;
-}
-
-/* Styles for phone screens */
-@media (max-width: 800px) {
-    body {
-        padding:10px;
-        font-size:1.2em;
-    }
-}
-
-/* Styles for desktop screens */
-@media (min-width: 801px) {
-    body {
-        width: 800px;
-        margin: 0 auto;
-        padding: 15px;
-    }
+    padding-bottom: 15px;
 }
 
 
@@ -50,6 +39,32 @@ th {
 
 td {
     padding: 2px 7px;
+}
+
+/* Styles for phone screens */
+@media (max-width: 800px) {
+    body {
+        padding:10px;
+        font-size:1.2em;
+    }
+
+    article {
+        overflow-x: auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+}
+
+/* Styles for desktop screens */
+@media (min-width: 801px) {
+    body {
+        width: 800px;
+        margin: 0 auto;
+        padding: 15px;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
