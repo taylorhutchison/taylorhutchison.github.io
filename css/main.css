@@ -3,11 +3,6 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-header,
-main {
-    padding: 15px;
-}
-
 nav {
     display: flex;
     justify-content: space-between;
@@ -17,16 +12,23 @@ nav span.title {
     font-size: 1.5em;
 }
 
-body {
-    width: 900px;
-    margin: 0 auto;
-}
-
-@media screen and (max-width: 900px) {
+/* Styles for phone screens */
+@media (max-width: 800px) {
     body {
-        width: 100%;
+        padding:10px;
+        font-size:1.2em;
     }
 }
+
+/* Styles for desktop screens */
+@media (min-width: 801px) {
+    body {
+        width: 800px;
+        margin: 0 auto;
+        padding: 15px;
+    }
+}
+
 
 .post-summary {
     display: block;
