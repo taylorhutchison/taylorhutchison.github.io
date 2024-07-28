@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "node build.js",
-    "serve": "npm run build && http-server -p 8080"
+    "serve": "http-server -p 8080 -c-1",
+    "watch": "nodemon --watch . --ext js,html,css,md --ignore node_modules/ --ignore posts/ --exec \"npm run build\"",
+    "start": "concurrently \"npm run watch\" \"npm run serve\""
   },
   "repository": {
     "type": "git",
@@ -21,7 +23,9 @@
   },
   "homepage": "https://github.com/taylorhutchison/taylorhutchison.github.io#readme",
   "dependencies": {
+    "concurrently": "^8.2.2",
     "http-server": "^14.1.1",
-    "marked": "^13.0.2"
+    "marked": "^13.0.2",
+    "nodemon": "^3.1.4"
   }
 }

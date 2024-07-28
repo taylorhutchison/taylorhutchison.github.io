@@ -26,7 +26,7 @@ fs.readdir(publishDir, (err, files) => {
 
     files.filter(file => path.extname(file) === '.md').forEach(file => {
         const filePath = path.join(publishDir, file);
-        const post = convertAndInject(filePath);
+        convertAndInject(filePath);
     });
 });
 
