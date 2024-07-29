@@ -27,7 +27,32 @@
     </header>
     <main>
         <article>
-            <!-- CONTENT_PLACEHOLDER -->
+            <div class="postHeading">
+
+<h1>Using dark and light themes for your site</h1>
+<h2>2024-07-28</h2>
+</div>
+
+<p>Many operating systems support themes and most browsers have the ability to query for the current user preferred color scheme using a CSS media query. Here are a couple of ways to achieve this without javascript. Using this technique your site will automatically switch between styles if the user&#39;s theme changes while they are browsing.</p>
+<h3>A media query for your link stylesheet</h3>
+<p>Use this approach if you want to load and use entire stylesheets based on the theme preference. Useful if you want to keep your dark and light themes in different files.</p>
+<pre><code class="html">&lt;link href="light.css" rel="stylesheet" media="(prefers-color-scheme: light)" /&gt;
+&lt;link href="dark.css" rel="stylesheet" media="(prefers-color-scheme: dark)" /&gt;</code></pre>
+
+<h3>A media query inside your stylesheet</h3>
+<p>Use this approach if you want to target just a few selectors that need updating based on the theme preference.</p>
+<pre><code class="css">@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #000;
+        color: #fff;
+    }
+}
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: #fff;
+        color: #000;
+    }
+}</code></pre>
         </article>
     </main>
 
