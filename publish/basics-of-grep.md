@@ -1,5 +1,9 @@
+<div class="postHeading">
+
 # The basics of grep
-#### 2016-08-16
+## 2016-08-16
+
+</div>
 
 ### The Command Line
 

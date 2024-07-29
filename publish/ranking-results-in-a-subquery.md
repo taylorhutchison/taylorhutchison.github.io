@@ -1,5 +1,9 @@
+<div class="postHeading">
+
 # Ranking results in a subquery using ROW_NUMBER()
-#### December 16th, 2018
+## December 16th, 2018
+
+</div>
 
 I was recently looking at some data that I wanted to rank. The problem was I did not want to see all the
 data in the table ranked. I just wanted to see a subset of the data, but with each row ranked among the entire dataset. Let me layout an example to illustrate the situation.
